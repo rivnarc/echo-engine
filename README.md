@@ -9,6 +9,7 @@ Echo Engine — is completely new 3D and 2D engine, which is used to create game
 * Language: [Rust](https://www.rust-lang.org/)
 * Graphics API: [`wgpu`](https://wgpu.rs/) (Vulkan and DX12)
 * Window Manager: [`winit`](https://crates.io/crates/winit)
+* Web Manager: [`dioxus`](https://dioxuslabs.com/)
 ## Roadmap
 ### Stage 1: Foundation and GPU
 - [x] Repository and concept initialization
