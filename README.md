@@ -29,7 +29,7 @@ Echo Engine — is completely new 3D and 2D engine, which is used to create game
 Make sure you have installed [Rust](https://www.rust-lang.org/).
 
 ```bash
-git clone [https://github.com/rivnarc/echo-engine.git](https://github.com/rivnarc/echo-engine.git)
+git clone https://github.com/rivnarc/echo-engine.git
 ```
 ```bash
 cd echo-engine
