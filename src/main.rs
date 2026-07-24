@@ -1,3 +1,5 @@
+use launcher::launcher;
+
 fn main() {
-    println!("Hello, world!");
+    launcher();
 }
