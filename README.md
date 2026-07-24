@@ -2,7 +2,7 @@
 <p align="center"><em>Where the ideas resonate.</em></p>
 <h1 align="center">Echo Engine</h1>
 
-> The project is in the early stages of development. Stay tuned for the official release.
+> The project is in the early stages of development. Stay tuned for the official release v1.0.0.
 
 Echo Engine — is completely new 3D and 2D engine, which is used to create games and some sort of simulations. 
 ## Technology Stack
