@@ -13,6 +13,7 @@ Echo Engine — is completely new 3D and 2D engine, which is used to create game
 ## Roadmap
 ### Stage 1: Foundation and GPU
 - [x] Repository and concept initialization
+- [ ] Launcher for engine (`dioxus`)
 - [ ] Window and event handling (`winit`)
 - [ ] `wgpu` context initialization
 - [ ] Rendering the first triangle (WGSL shader)
