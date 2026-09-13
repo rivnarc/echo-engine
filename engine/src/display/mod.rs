@@ -51,6 +51,6 @@ pub fn get_primary_display(displays: &Vec<Display>) -> &Display {
         return &displays[0];
     } else {
         set_error(0.12);
-        return &displays[0]; // NOTE : Impossible to reach
+        panic!(""); // NOTE : Impossible to reach
     }
 }

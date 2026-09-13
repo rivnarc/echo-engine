@@ -1,3 +1,5 @@
+use crate::errors;
+use crate::gpu_context::GpuContext;
 use std::sync::Arc;
 use winit::application::ApplicationHandler;
 use winit::dpi::LogicalSize;
@@ -7,16 +9,14 @@ use winit::window::{Window, WindowId};
 
 pub struct App {
     window: Option<Arc<Window>>,
-    context: Option<softbuffer::Context<Arc<Window>>>,
-    surface: Option<softbuffer::Surface<Arc<Window>, Arc<Window>>>,
+    gpu: Option<GpuContext>,
 }
 
 impl Default for App {
     fn default() -> Self {
         Self {
             window: None,
-            context: None,
-            surface: None,
+            gpu: None,
         }
     }
 }
@@ -25,16 +25,13 @@ impl ApplicationHandler for App {
     fn resumed(&mut self, event_loop: &ActiveEventLoop) {
         let window_attributes = Window::default_attributes()
             .with_title("Echo Engine")
-            .with_inner_size(LogicalSize::new(80.0, 60.0));
+            .with_inner_size(LogicalSize::new(800.0, 600.0));
 
         let window = Arc::new(event_loop.create_window(window_attributes).unwrap());
-
-        let context = softbuffer::Context::new(window.clone()).unwrap();
-        let surface = softbuffer::Surface::new(&context, window.clone()).unwrap();
+        let gpu = GpuContext::new(window.clone());
 
         self.window = Some(window);
-        self.context = Some(context);
-        self.surface = Some(surface);
+        self.gpu = Some(gpu);
     }
 
     fn window_event(&mut self, event_loop: &ActiveEventLoop, _id: WindowId, event: WindowEvent) {
@@ -42,22 +39,16 @@ impl ApplicationHandler for App {
             WindowEvent::CloseRequested => {
                 event_loop.exit();
             }
+            WindowEvent::Resized(new_size) => {
+                if let Some(gpu) = &mut self.gpu {
+                    gpu.resize(new_size);
+                }
+            }
             WindowEvent::RedrawRequested => {
-                if let (Some(window), Some(surface)) = (&self.window, &mut self.surface) {
-                    let size = window.inner_size();
-                    if size.width > 0 && size.height > 0 {
-                        surface
-                            .resize(
-                                std::num::NonZeroU32::new(size.width).unwrap(),
-                                std::num::NonZeroU32::new(size.height).unwrap(),
-                            )
-                            .unwrap();
-
-                        let mut buffer = surface.buffer_mut().unwrap();
-                        for pixel in buffer.iter_mut() {
-                            *pixel = 0x5F0505;
-                        }
-                        buffer.present().unwrap();
+                if let Some(gpu) = &mut self.gpu {
+                    match gpu.render() {
+                        Ok(_) => {}
+                        Err(_e) => errors::set_error(0.21),
                     }
                 }
             }

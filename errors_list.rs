@@ -9,5 +9,7 @@
 // NOTE :       ERROR 0.11 - Engine can't get display(s) of the system. Make sure you have at least one display properly connected and have all the necessary permissions.
 // NOTE :       ERROR 0.12 - Settings to a function 'get_primary_display' are not valid. Make sure you didn't modify the main.rs or display/mod.rs file.
 // NOTE :   Errors which starts with '0.2' - Window errors.
-// NOTE :       ERROR 0.21 -
+// NOTE :       ERROR 0.21 - Engine can't render content at the window.
+// NOTE :   Errors which starts with '0.3' - Graphics errors.
+// NOTE :       ERROR 0.31 - Surface can't get default config.
 // NOTE : Errors which starts with '1...' - Editor errors.
