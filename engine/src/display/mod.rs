@@ -1,3 +1,5 @@
+// HACK : I'll use it later
+
 use crate::errors::set_error;
 use display_info::DisplayInfo;
 
