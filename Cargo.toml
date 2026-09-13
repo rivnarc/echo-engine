@@ -1,0 +1,26 @@
+[package]
+name = "echo-engine"
+authors = ["rivnarc"]
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+winit = "0.30.13"
+softbuffer = "0.4"
+display-info = "0.5.9"
+env_logger = "0.11.11"
+log = "0.4.34"
+
+[workspace]
+members = [
+    "engine",
+    "editor",
+]
+resolver = "2"
+
+[lib]
+path = "editor/src/lib.rs"
+
+[[bin]]
+name = "engine"
+path = "engine/src/main.rs"

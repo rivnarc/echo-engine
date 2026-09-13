@@ -1,0 +1,11 @@
+[package]
+name = "engine"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+winit = "0.30.13"
+softbuffer = "0.4"
+display-info = "0.5.9"
+env_logger = "0.11.11"
+log = "0.4.34"
