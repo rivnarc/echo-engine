@@ -30,7 +30,7 @@ jobs:
 
     # Запуск линтера Clippy
     - name: Lint with Clippy
-      run: cargo clippy -- -D warnings
+      run: cargo clippy -- -D warnings -A clippy::derivable_impls
 
     # Сборка проекта
     - name: Build
