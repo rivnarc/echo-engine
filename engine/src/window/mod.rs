@@ -1,5 +1,5 @@
 use crate::errors;
-use crate::gpu_context::GpuContext;
+use crate::gpu::GpuContext;
 use std::sync::Arc;
 use winit::application::ApplicationHandler;
 use winit::dpi::LogicalSize;
