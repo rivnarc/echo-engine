@@ -1,11 +1,8 @@
-//pub mod display;
 pub mod editor;
-pub mod errors;
 pub mod gpu;
+pub mod logs;
 pub mod window;
 
 fn main() {
-    env_logger::init();
-
     window::run();
 }
