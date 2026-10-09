@@ -1,3 +1,4 @@
+use crate::logs::errors::set_error;
 use std::sync::Arc;
 use winit::window::Window;
 
@@ -34,7 +35,8 @@ pub fn create_gpu_resources(window: Arc<Window>) -> InitializedGpu {
     let config = match surface.get_default_config(&adapter, size.width.max(1), size.height.max(1)) {
         Some(conf) => conf,
         None => {
-            panic!("Failed to get default surface configuration");
+            set_error(0.1);
+            panic!("");
         }
     };
 
